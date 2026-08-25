@@ -63,7 +63,7 @@ def load_ascii_dataset(
 
   # Naively tokenise by taking ASCII codepoints.
   corpus = np.array([ord(c) for c in corpus]).astype(np.int32)  # pyrefly: ignore[bad-assignment]
-  assert np.max(corpus) < VOCAB_SIZE
+  assert np.max(corpus) < VOCAB_SIZE  # pyrefly: ignore[no-matching-overload]
 
   crop_len = sequence_length + 1
   num_batches, remainder = divmod(corpus.size, batch_size * crop_len)  # pyrefly: ignore[missing-attribute]
